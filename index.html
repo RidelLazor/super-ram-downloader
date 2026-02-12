@@ -1,164 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Download More RAM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        color: white;
-        text-align: center;
-    }
+body {
+    background: black;
+    color: lime;
+    font-family: "Courier New", monospace;
+    text-align: center;
+}
 
-    .container {
-        padding: 60px 20px;
-    }
+h1 {
+    margin-top: 40px;
+    font-size: 36px;
+}
 
-    h1 {
-        font-size: 48px;
-        margin-bottom: 10px;
-    }
+.warning {
+    color: yellow;
+    margin: 10px 0 30px;
+    font-size: 14px;
+}
 
-    .tagline {
-        opacity: 0.8;
-        margin-bottom: 20px;
-    }
+.plan {
+    border: 2px dashed lime;
+    display: inline-block;
+    width: 180px;
+    margin: 15px;
+    padding: 15px;
+}
 
-    .warning {
-        background: rgba(255,255,255,0.1);
-        display: inline-block;
-        padding: 10px 15px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-        font-size: 14px;
-    }
+button {
+    background: black;
+    color: lime;
+    border: 2px solid lime;
+    padding: 8px 15px;
+    cursor: pointer;
+}
 
-    .laptop {
-        width: 320px;
-        margin: 30px auto;
-    }
+button:hover {
+    background: lime;
+    color: black;
+}
 
-    button {
-        padding: 15px 30px;
-        font-size: 18px;
-        border: none;
-        border-radius: 8px;
-        background: #00c6ff;
-        color: black;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-    button:hover {
-        transform: scale(1.05);
-        background: #00e0ff;
-    }
-
-    .features {
-        margin-top: 50px;
-        opacity: 0.9;
-    }
-
-    .modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.8);
-        justify-content: center;
-        align-items: center;
-    }
-
-    .modal-box {
-        background: #1e2a38;
-        padding: 30px;
-        border-radius: 10px;
-        width: 300px;
-    }
-
-    .bar {
-        height: 20px;
-        background: #333;
-        border-radius: 10px;
-        margin-top: 15px;
-        overflow: hidden;
-    }
-
-    .fill {
-        height: 100%;
-        width: 0%;
-        background: #00ffcc;
-        transition: width 0.2s;
-    }
-
-    footer {
-        margin-top: 60px;
-        font-size: 13px;
-        opacity: 0.6;
-    }
+footer {
+    margin-top: 40px;
+    font-size: 12px;
+    color: gray;
+}
 </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Download More RAM</h1>
-    <div class="tagline">Instant • Fast • Free</div>
+<marquee>🚀 OFFICIAL RAM DOWNLOAD PORTAL 🚀 WORKS ON WINDOWS, LINUX, MAC, TOASTERS 🚀</marquee>
 
-    <div class="warning">
-        ⚠️ This is a parody website. RAM is physical hardware and cannot be downloaded.
-    </div>
+<h1>DOWNLOAD MORE RAM v5.7</h1>
 
-    <img class="laptop" src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png">
-
-    <br>
-    <button onclick="startDownload()">Download</button>
-
-    <div class="features">
-        <p>✔ Quantum Cloud Memory™</p>
-        <p>✔ AI Performance Boost</p>
-        <p>✔ Works on Toasters (ARM64)</p>
-    </div>
+<div class="warning">
+⚠ THIS IS A PARODY WEBSITE. RAM IS PHYSICAL HARDWARE AND CANNOT BE DOWNLOADED. ⚠
 </div>
 
-<div class="modal" id="modal">
-    <div class="modal-box">
-        <h3>Installing 64GB RAM...</h3>
-        <div class="bar"><div class="fill" id="fill"></div></div>
-        <p id="status">Initializing...</p>
-    </div>
+<p>Select how much RAM you want to download:</p>
+
+<div class="plan">
+    <h2>4 GB</h2>
+    <p>Basic browsing edition</p>
+    <button onclick="fakeInstall()">SELECT PLAN</button>
+</div>
+
+<div class="plan">
+    <h2>8 GB</h2>
+    <p>Gamer Starter Pack</p>
+    <button onclick="fakeInstall()">SELECT PLAN</button>
+</div>
+
+<div class="plan">
+    <h2>16 GB</h2>
+    <p>Serious Performance Mode</p>
+    <button onclick="fakeInstall()">SELECT PLAN</button>
+</div>
+
+<div class="plan">
+    <h2>32 GB</h2>
+    <p>NASA Quantum Edition</p>
+    <button onclick="fakeInstall()">SELECT PLAN</button>
 </div>
 
 <footer>
-    This site is satire. No software is provided. Nothing is installed.
+© 2004–2026 DownloadMoreRAM Corporation • Certified by the International Board of Fake Technology
 </footer>
 
 <script>
-function startDownload() {
-    const modal = document.getElementById("modal");
-    const fill = document.getElementById("fill");
-    const status = document.getElementById("status");
-
-    modal.style.display = "flex";
-    let progress = 0;
-
-    const interval = setInterval(() => {
-        progress += 5;
-        fill.style.width = progress + "%";
-
-        if (progress === 25) status.textContent = "Connecting to silicon servers...";
-        if (progress === 55) status.textContent = "Bypassing laws of physics...";
-        if (progress === 85) status.textContent = "Injecting quantum memory...";
-
-        if (progress >= 100) {
-            clearInterval(interval);
-            status.textContent = "Download complete!";
+function fakeInstall() {
+    alert("Initializing RAM download...");
+    setTimeout(() => {
+        alert("Connecting to silicon servers...");
+        setTimeout(() => {
+            alert("Bypassing laws of physics...");
             setTimeout(() => {
-                window.open("DownloadMoreRAM.ps1");
-            }, 1500);
-        }
-    }, 150);
+                alert("SUCCESS! 64GB RAM INSTALLED!");
+                window.open("https://www.youtube.com/watch?v=SiJie3Z7DG8&list=RDSiJie3Z7DG8&start_radio=1&pp=ygUGd2VlemVyoAcB0gcJCYcKAYcqIYzv");
+            }, 1200);
+        }, 1000);
+    }, 1000);
 }
 </script>
 
