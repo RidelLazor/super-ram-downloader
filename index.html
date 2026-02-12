@@ -1,108 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Download More RAM</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download More RAM</title>
+
 <style>
 body {
-    background: black;
-    color: lime;
-    font-family: "Courier New", monospace;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
     text-align: center;
 }
 
-h1 {
-    margin-top: 40px;
-    font-size: 36px;
+/* Top Green Header */
+header {
+    background: #6ea36f;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.warning {
-    color: yellow;
-    margin: 10px 0 30px;
+.logo {
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
+
+nav a {
+    color: white;
+    margin-left: 25px;
+    text-decoration: none;
     font-size: 14px;
 }
 
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Section */
+.hero {
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.warning {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 40px;
+}
+
+/* RAM Options */
+.plans {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
 .plan {
-    border: 2px dashed lime;
-    display: inline-block;
-    width: 180px;
-    margin: 15px;
-    padding: 15px;
+    background: white;
+    padding: 30px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.plan h2 {
+    margin-bottom: 5px;
+}
+
+.plan p {
+    font-size: 13px;
+    color: #777;
 }
 
 button {
-    background: black;
-    color: lime;
-    border: 2px solid lime;
-    padding: 8px 15px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #3aa0d8;
+    color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background: lime;
-    color: black;
+    background: #2b8cc2;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: white;
+    padding: 30px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+.progress-bar {
+    height: 18px;
+    background: #ddd;
+    border-radius: 10px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #6ea36f;
+    transition: width 0.2s;
 }
 
 footer {
-    margin-top: 40px;
+    margin: 60px 0 20px;
     font-size: 12px;
-    color: gray;
+    color: #999;
 }
 </style>
 </head>
+
 <body>
 
-<marquee>🚀 OFFICIAL RAM DOWNLOAD PORTAL 🚀 WORKS ON WINDOWS, LINUX, MAC, TOASTERS 🚀</marquee>
+<header>
+    <div class="logo">DownloadMoreRAM</div>
+    <nav>
+        <a href="#">HOME</a>
+        <a href="#">DOWNLOAD</a>
+        <a href="#">SHOP</a>
+        <a href="#">CONTACT</a>
+    </nav>
+</header>
 
-<h1>DOWNLOAD MORE RAM v5.7</h1>
+<div class="hero">
+    <h1>Download more RAM!</h1>
+    <div class="subtitle">Instant, Fast, FREE</div>
+    <div class="warning">
+        This is a parody website. RAM is physical hardware and cannot be downloaded.
+    </div>
 
-<div class="warning">
-⚠ THIS IS A PARODY WEBSITE. RAM IS PHYSICAL HARDWARE AND CANNOT BE DOWNLOADED. ⚠
+    <div class="plans">
+        <div class="plan">
+            <h2>4 GB</h2>
+            <p>DDR4-2400</p>
+            <button onclick="startInstall()">Select Plan</button>
+        </div>
+
+        <div class="plan">
+            <h2>8 GB</h2>
+            <p>DDR4-2400</p>
+            <button onclick="startInstall()">Select Plan</button>
+        </div>
+
+        <div class="plan">
+            <h2>16 GB</h2>
+            <p>Quantum Edition</p>
+            <button onclick="startInstall()">Select Plan</button>
+        </div>
+
+        <div class="plan">
+            <h2>32 GB</h2>
+            <p>NASA Certified</p>
+            <button onclick="startInstall()">Select Plan</button>
+        </div>
+    </div>
 </div>
 
-<p>Select how much RAM you want to download:</p>
-
-<div class="plan">
-    <h2>4 GB</h2>
-    <p>Basic browsing edition</p>
-    <button onclick="fakeInstall()">SELECT PLAN</button>
-</div>
-
-<div class="plan">
-    <h2>8 GB</h2>
-    <p>Gamer Starter Pack</p>
-    <button onclick="fakeInstall()">SELECT PLAN</button>
-</div>
-
-<div class="plan">
-    <h2>16 GB</h2>
-    <p>Serious Performance Mode</p>
-    <button onclick="fakeInstall()">SELECT PLAN</button>
-</div>
-
-<div class="plan">
-    <h2>32 GB</h2>
-    <p>NASA Quantum Edition</p>
-    <button onclick="fakeInstall()">SELECT PLAN</button>
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <h3>Installing RAM...</h3>
+        <div class="progress-bar">
+            <div class="progress-fill" id="fill"></div>
+        </div>
+        <p id="status">Initializing...</p>
+    </div>
 </div>
 
 <footer>
-© 2004–2026 DownloadMoreRAM Corporation • Certified by the International Board of Fake Technology
+© 2026 DownloadMoreRAM Corporation • Certified by the International Board of Fake Technology
 </footer>
 
 <script>
-function fakeInstall() {
-    alert("Initializing RAM download...");
-    setTimeout(() => {
-        alert("Connecting to silicon servers...");
-        setTimeout(() => {
-            alert("Bypassing laws of physics...");
+function startInstall() {
+    const modal = document.getElementById("modal");
+    const fill = document.getElementById("fill");
+    const status = document.getElementById("status");
+
+    modal.style.display = "flex";
+    let progress = 0;
+
+    const interval = setInterval(() => {
+        progress += 5;
+        fill.style.width = progress + "%";
+
+        if (progress === 30) status.textContent = "Connecting to silicon servers...";
+        if (progress === 60) status.textContent = "Bypassing laws of physics...";
+        if (progress === 90) status.textContent = "Injecting quantum memory...";
+
+        if (progress >= 100) {
+            clearInterval(interval);
+            status.textContent = "Installation Complete!";
             setTimeout(() => {
-                alert("SUCCESS! 64GB RAM INSTALLED!");
                 window.open("https://www.youtube.com/watch?v=SiJie3Z7DG8&list=RDSiJie3Z7DG8&start_radio=1&pp=ygUGd2VlemVyoAcB0gcJCYcKAYcqIYzv");
-            }, 1200);
-        }, 1000);
-    }, 1000);
+            }, 1500);
+        }
+    }, 120);
 }
 </script>
 
